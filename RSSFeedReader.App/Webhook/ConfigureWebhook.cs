@@ -2,10 +2,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using RSSFeedReader.RobotCodes.Bot;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using RSSFeedReader.Robot.Bot;
 using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
 

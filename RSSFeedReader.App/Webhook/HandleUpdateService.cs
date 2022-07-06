@@ -1,10 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using RSSFeedReader.DataLayer.Context;
-using RSSFeedReader.DataLayer.Repositories;
-using RSSFeedReader.RobotCodes.Bot;
 using System;
 using System.Threading.Tasks;
 using RSSFeedReader.DataLayer.Services;
+using RSSFeedReader.Robot.Bot;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
