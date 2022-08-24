@@ -29,7 +29,6 @@ namespace RSSFeedReader.App
                     => new TelegramBotClient(BotConfig.BotToken, httpClient));
 
             services.AddScoped<HandleUpdateService>();
-
             services.AddScoped<MoviesController>();
 
             services.AddControllersWithViews().AddNewtonsoftJson();

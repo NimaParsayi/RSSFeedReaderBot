@@ -3,21 +3,21 @@ using System.Linq;
 using System.Timers;
 using CodeHollow.FeedReader;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using RSSFeedReader.DataLayer.Services;
 using RSSFeedReader.Robot.Bot;
 using RSSFeedReader.RobotCodes.Modules;
 
 namespace RSSFeedReader.App.Controllers
 {
-    public class MoviesController
+    public class MoviesController : ControllerBase
     {
-        private static List<FeedItem> feedItems;
-
-        public MoviesController()
+        private FeedsRepository feedsRepository;
+        private IConfiguration configuration;
+        public MoviesController(IConfiguration configuration)
         {
-            feedItems = FeedController.GetFeedItems(
-                "https://iptorrents.com/t.rss?u=1764728;tp=55ec80a8b063cabd26022bde0d0c268f;48;7;20;38;100;101;89;68;62;6;90;96;87;77;54").ToList();
-
+            feedsRepository = new FeedsRepository();
+            this.configuration = configuration;
 
             Timer timer = new Timer(300000);
             timer.Elapsed += Timer_Elapsed;
@@ -29,9 +29,13 @@ namespace RSSFeedReader.App.Controllers
 
         private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            var newItems = FeedController.GetFeedItems(
-                "https://iptorrents.com/t.rss?u=1764728;tp=55ec80a8b063cabd26022bde0d0c268f;48;7;20;38;100;101;89;68;62;6;90;96;87;77;54").ToList();
-            newItems = newItems.Except(feedItems, new FeedComparer()).ToList();
+            var oldItems = await feedsRepository.GetAllFeeds();
+
+            var newItems = FeedController.GetFeedItems(configuration.GetSection("RssLink").Value).ToList();
+            newItems = newItems.Except(oldItems, new FeedComparer()).ToList();
+
+            await feedsRepository.UpdateFeed(FeedController.GetFeedAsString(configuration.GetSection("RssLink").Value));
+
             await MessagesController.SendMessage(new MainRepository().GetActiveUsers(), newItems);
         }
     }

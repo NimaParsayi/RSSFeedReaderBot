@@ -12,6 +12,9 @@ namespace RSSFeedReader.RobotCodes.Modules
             items = items.OrderBy(x => x.PublishingDate).ToList();
             return items;
         }
-
+        public static string GetFeedAsString(string url)
+        {
+            return FeedReader.Read(url).OriginalDocument;
+        }
     }
 }

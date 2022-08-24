@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSSFeedReader.Robot", "RSSF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSSFeedReader.App", "RSSFeedReader.App\RSSFeedReader.App.csproj", "{344C23ED-B1DF-4D5B-87C5-C12C16C4CEF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSSFeedReaderBot.Test", "RSSFeedReaderBot.Test\RSSFeedReaderBot.Test.csproj", "{058D8DC1-1B33-4DC8-835F-244E61D32BDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{344C23ED-B1DF-4D5B-87C5-C12C16C4CEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{344C23ED-B1DF-4D5B-87C5-C12C16C4CEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{344C23ED-B1DF-4D5B-87C5-C12C16C4CEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{058D8DC1-1B33-4DC8-835F-244E61D32BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058D8DC1-1B33-4DC8-835F-244E61D32BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058D8DC1-1B33-4DC8-835F-244E61D32BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058D8DC1-1B33-4DC8-835F-244E61D32BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

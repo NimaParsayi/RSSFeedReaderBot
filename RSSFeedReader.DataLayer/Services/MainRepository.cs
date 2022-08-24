@@ -21,12 +21,10 @@ namespace RSSFeedReader.DataLayer.Services
             var model = JsonConvert.DeserializeObject<List<User>>(file);
             return await Task.FromResult(model);
         }
-
         public int GetCountOfUsers()
         {
             return GetAllUsers().Result.Count;
         }
-
         public List<User> GetActiveUsers()
         {
             var model = GetAllUsers().Result;
@@ -34,7 +32,6 @@ namespace RSSFeedReader.DataLayer.Services
 
             return model;
         }
-
         public bool AddUser(User user)
         {
             try
@@ -53,7 +50,6 @@ namespace RSSFeedReader.DataLayer.Services
                 return false;
             }
         }
-
         public bool ActiveUser(long userId)
         {
             try
@@ -92,7 +88,6 @@ namespace RSSFeedReader.DataLayer.Services
                 return false;
             }
         }
-
         public bool IsExists(long userId)
         {
             return GetAllUsers().Result.Exists(a => a.Id == userId);
