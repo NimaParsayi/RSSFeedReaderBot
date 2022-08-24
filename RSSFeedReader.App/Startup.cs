@@ -29,7 +29,7 @@ namespace RSSFeedReader.App
                     => new TelegramBotClient(BotConfig.BotToken, httpClient));
 
             services.AddScoped<HandleUpdateService>();
-            services.AddScoped<MoviesController>();
+            //services.AddScoped<MoviesController>();
 
             services.AddControllersWithViews().AddNewtonsoftJson();
         }
@@ -47,6 +47,8 @@ namespace RSSFeedReader.App
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            new MoviesController(Configuration);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
